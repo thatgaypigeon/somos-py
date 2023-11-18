@@ -1,9 +1,9 @@
 # Project information
-site_name: >-
-  `somos-py`
-site_url: https://pigeon.uk.to/projects/somos-py/
+site_name: somos-py
+# site_url: https://pigeon.uk.to/projects/somos-py/
 site_author: Max Kerr
-site_description: A Somos sequence generator in Python!
+site_description: >-
+  A Somos sequence generator in Python!
 
 # Repository
 repo_name: thatgaypigeon/somos-py
@@ -14,18 +14,19 @@ edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2023 Max Kerr
 
 theme:
-  name: dracula
-  language: en 
-  primary: orange
-  accent: indigo
+  name: material # dracula
+  language: en
 
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       scheme: slate
       toggle:
-        icon: material/brightness-6
-        name: Change brightness!
+        icon: material/brightness-4
+        name: Day mode!
+
+      primary: orange
+      accent: indigo
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -33,13 +34,16 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Night mode!
+        
+      primary: orange
+      accent: indigo
 
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Day mode!
+    # - media: "(prefers-color-scheme: dark)"
+    #   scheme: slate
+    #   toggle:
+    #     icon: material/brightness-4
+    #     name: Day mode!
 
   font:
     text: Poppins
@@ -49,10 +53,10 @@ theme:
   favicon: assets/favicon.ico
 
   features:
-    - announce.dismiss
+    # - announce.dismiss
     - content.action.edit
     - content.action.view
-    - header.autohide
+    # - header.autohide
     - navigation.footer
     - navigation.indexes
     - navigation.instant
@@ -87,6 +91,8 @@ plugins:
 
 markdown_extensions:
   - abbr
+  - pymdownx.arithmatex:
+      generic: true
 
 extra:
   homepage: https://pigeon.uk.to/projects/somos-py/
@@ -121,7 +127,12 @@ extra:
       - reject
       - manage
 
-  generator: true # bc its actually cool
+  generator: false
 
   version:
     provider: mike
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
