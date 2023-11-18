@@ -5,6 +5,9 @@ site_author: Max Kerr
 site_description: >-
   A Somos sequence generator in Python!
 
+docs_dir: "docs/src"
+site_dir: "docs/build"
+
 # Repository
 repo_name: thatgaypigeon/somos-py
 repo_url: https://github.com/thatgaypigeon/somos-py/
