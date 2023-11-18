@@ -1,6 +1,6 @@
 # Project information
 site_name: somos-py
-# site_url: https://pigeon.uk.to/projects/somos-py/
+site_url: https://pigeon.uk.to/projects/somos-py/
 site_author: Max Kerr
 site_description: >-
   A Somos sequence generator in Python!
