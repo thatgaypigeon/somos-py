@@ -5,14 +5,14 @@ build-backend = "hatchling.build"
 [project]
 name = "somos"
 version = "1.0.0"
-description = "A somos sequence generator for Python!"
+description = "A Somos sequence generator for Python!"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
 authors = [
   {name="thatgaypigeon", email="pigeon43.stuff@gmail.com"},
 ]
-keywords = ["somos", "sequence", "math", "maths", "oeis", "number", "numbers", "recurrence", "recurrence relation", "equation", "series", "A006720", "A006721", "A006722", "A006723", "A018896"]
+keywords = ["somos", "sequence", "math", "maths", "mathematics", "oeis", "number", "numbers", "recurrence", "recurrence relation", "equation", "series", "A006720", "A006721", "A006722", "A006723", "A030127"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved",
@@ -37,7 +37,7 @@ classifiers = [
 
 [project.urls]
 "Documentation" = "http://somos.rtfd.io/"
-"Homepage" = "https://github.com/thatgaypigeon/somos-py"
+"Homepage" = "https://pigeon.uk.to/somos-py"
 "Issues / Bugs" = "https://github.com/thatgaypigeon/somos-py/issues"
 "PyPI" = "https://pypi.org/project/somos/"
 "Support Server" = "https://discord.gg/MyPTZBH4Q8"
