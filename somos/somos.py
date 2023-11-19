@@ -4,7 +4,7 @@ Somos
 
 A Somos sequence generator for Python.
 
-:copyright: (c) 2023-present thatgaypigeon (Pigeon43)
+:copyright: (c) 2023-present Max Kerr
 :license: MIT, see LICENSE for more details.
 
 """
