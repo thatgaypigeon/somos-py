@@ -16,4 +16,4 @@ python:
     path: .
     extra_requirements:
       - docs
-  - requirements: src/docs/requirements.txt
+  - requirements: docs/src/requirements.txt
