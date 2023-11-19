@@ -21,6 +21,7 @@ copyright: Copyright &copy; 2023 Max Kerr
 theme:
   name: material # dracula
   language: en
+  custom_dir: src/docs/overrides
 
   palette:
     # Palette toggle for automatic mode
