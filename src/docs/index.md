@@ -56,9 +56,11 @@ Below are the first 20 terms of Somos sequences 4 to 10.
 
 <div align="center">
 
-<img src="https://img.youtube.com/vi/p-HN_ICaCyM/0.jpg" alt="The Troublemaker Number - Numberphile" title="The Troublemaker Number - Numberphile on YouTube" href="https://www.youtube.com/watch?v=p-HN_ICaCyM" />
+<a href="https://www.youtube.com/watch?v=p-HN_ICaCyM" title="The Troublemaker Number - Numberphile on YouTube">
+<img src="https://img.youtube.com/vi/p-HN_ICaCyM/0.jpg" alt="The Troublemaker Number - Numberphile" href="https://www.youtube.com/watch?v=p-HN_ICaCyM" />
+</a>
 
-[The Troublemaker Number - Numberphile](https://www.youtube.com/watch?v=p-HN_ICaCyM) on YouTube
+<a href="https://www.youtube.com/watch?v=p-HN_ICaCyM" title="The Troublemaker Number - Numberphile on YouTube">The Troublemaker Number - Numberphile</a> on YouTube
 
 </div>
 
