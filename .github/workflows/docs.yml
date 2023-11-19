@@ -3,7 +3,7 @@ name: Build & Deploy Documentation
 on:
   push:
     branches:
-      - main
+      - main/docs
 
 permissions:
   contents: write
