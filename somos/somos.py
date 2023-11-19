@@ -4,7 +4,7 @@ Somos
 
 A Somos sequence generator for Python.
 
-:copyright: (c) 2023-present Max Kerr
+:copyright: (c) 2023-present Max Kerr (thatgaypigeon)
 :license: MIT, see LICENSE for more details.
 
 """
@@ -25,11 +25,11 @@ __version_info__: VersionInfo = VersionInfo(major=0, minor=1, micro=0)
 
 __title__ = "somos"
 """Project title."""
-__author__ = "thatgaypigeon" # Pigeon43
+__author__ = "Max Kerr (thatgaypigeon)" # Pigeon43
 """Project author."""
 __license__ = "MIT"
 """Project license."""
-__copyright__ = "Copyright 2023-present thatgaypigeon" # Pigeon43
+__copyright__ = "Copyright 2023-present Max Kerr (thatgaypigeon)" # Pigeon43
 """Project copyright information."""
 __version__ = f"{__version_info__.major}.{__version_info__.minor}.{__version_info__.micro}{f'{__version_info__.level}{__version_info__.pre_release}' if __version_info__.level is not None and __version_info__.pre_release is not None else ''}{f'.dev{__version_info__.dev}' if __version_info__.dev is not None else ''}"
 """Project version."""
