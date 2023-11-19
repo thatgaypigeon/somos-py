@@ -5,8 +5,8 @@ site_author: Max Kerr
 site_description: >-
   A Somos sequence generator in Python!
 
-docs_dir: "docs/src"
-site_dir: "docs/build"
+docs_dir: "src/docs"
+site_dir: "docs"
 
 use_directory_urls: true
 
