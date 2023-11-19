@@ -1,9 +1,12 @@
-name: Build & Deploy documentation
+name: Build & Deploy Documentation
 
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   build:
