@@ -54,15 +54,13 @@ Below are the first 20 terms of Somos sequences 4 to 10.
 ### In popular culture
 **Somos sequences** were discussed by [Dr Harini Desiraju](https://www.sydney.edu.au/science/about/our-people/academic-staff/harini-desiraju.html), a fellow at the University of Syndey, in a [Numberphile](https://www.youtube.com/@numberphile) video from May 2022.
 
-<div align="center">
-
+<center>
 <a href="https://www.youtube.com/watch?v=p-HN_ICaCyM" title="The Troublemaker Number - Numberphile on YouTube">
 <img src="https://img.youtube.com/vi/p-HN_ICaCyM/0.jpg" alt="The Troublemaker Number - Numberphile" href="https://www.youtube.com/watch?v=p-HN_ICaCyM" />
 </a>
 
-<a href="https://www.youtube.com/watch?v=p-HN_ICaCyM" title="The Troublemaker Number - Numberphile on YouTube">The Troublemaker Number - Numberphile</a> on YouTube
-
-</div>
+<a href="https://www.youtube.com/watch?v=p-HN_ICaCyM">The Troublemaker Number - Numberphile</a> on YouTube
+</center>
 
 ## Uses
 None, really. This is just a small implementation of a bit of number theory. It's purely recreational. :)
