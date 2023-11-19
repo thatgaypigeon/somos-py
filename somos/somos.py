@@ -1,14 +1,3 @@
-"""
-Somos
--------
-
-A Somos sequence generator for Python.
-
-:copyright: (c) 2023-present Max Kerr (thatgaypigeon)
-:license: MIT, see LICENSE for more details.
-
-"""
-
 import logging
 from typing import NamedTuple, Literal
 
