@@ -8,6 +8,8 @@ site_description: >-
 docs_dir: "src/docs"
 site_dir: "docs"
 
+use_directory_urls: true
+
 # Repository
 repo_name: thatgaypigeon/somos-py
 repo_url: https://github.com/thatgaypigeon/somos-py/
