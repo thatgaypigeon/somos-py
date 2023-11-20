@@ -6,7 +6,7 @@ site_description: >-
   A Somos sequence generator in Python!
 
 docs_dir: "docs"
-# site_dir: "docs/build"
+site_dir: "site"
 
 use_directory_urls: true
 
