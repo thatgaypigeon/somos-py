@@ -68,7 +68,7 @@ Below are the first 20 terms of Somos sequences 4 to 10.
 </dl>
 
 ### In popular culture <a href="#top"><img align="right" height="20px" src="https://api.iconify.design/octicon:move-to-top-16.svg?color=%23ffa724" /></a>
-**Somos sequences** were discussed by [Dr Harini Desiraju](https://www.sydney.edu.au/science/about/our-people/academic-staff/harini-desiraju.html), a fellow at the University of Syndey, in a [Numberphile](https://www.youtube.com/@numberphile) video from May 2022.
+**Somos sequences** were discussed by [Dr Harini Desiraju](https://www.sydney.edu.au/science/about/our-people/academic-staff/harini-desiraju.html), a fellow at the University of Sydney, in a [Numberphile](https://www.youtube.com/@numberphile) video from May 2022.
 
 <center>
 <a href="https://www.youtube.com/watch?v=p-HN_ICaCyM" title="The Troublemaker Number - Numberphile on YouTube">
