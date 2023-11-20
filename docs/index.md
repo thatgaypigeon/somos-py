@@ -10,7 +10,7 @@ If you don't know about **Somos sequences**, they are a series of [mathematical 
 
 Check out the [**latest version**](https://github.com/thatgaypigeon/somos-py/release)!
 
-<!-- ----
+<!-- ---
 <p> -->
 
 <a name=""><img height="22px" src="https://img.shields.io/readthedocs/somos?style=for-the-badge&label=Docs" /></a><a href="https://github.com/thatgaypigeon/somos-py/releases/" ><sup><sub><img height="17px" src="https://api.iconify.design/octicon:link-external-16.svg?color=%23ffa724" alt="↗" hspace="6px" /><sup></sub></a>
