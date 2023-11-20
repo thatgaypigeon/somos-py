@@ -3,7 +3,9 @@ name: Build & Deploy Documentation
 on:
   push:
     branches:
-      - main/docs
+      - main
+    paths:
+      - docs/**
 
 permissions:
   contents: write
