@@ -1,5 +1,6 @@
 # Installing `somos`
 To install the library, simply run the following line from the command line:
+
 ```
 python -m pip install somos
 ```
