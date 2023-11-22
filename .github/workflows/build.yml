@@ -44,8 +44,10 @@ jobs:
       - name: Stash version
         id: version
         run: |
-          export version=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }} --dry-run)
+          export version=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
+          echo "---"
           echo $version
+          echo "---"
           echo "{version}={$version}" >> $GITHUB_OUTPUT
 
       # Bump
