@@ -42,10 +42,11 @@ jobs:
 
       # Stash version
       - name: Stash version
+        shell: bash
         id: set-version
         run: |
-          export version=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
-          echo "{version}={$version}" >> $GITHUB_OUTPUT
+          export ver=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
+          echo "{version}={$ver}" >> $GITHUB_OUTPUT
 
       # Bump
       - name: Bump
@@ -77,7 +78,7 @@ jobs:
           git commit -m "Pre-deploy commit for ${{ steps.set-version.outputs.version }}"
 
     outputs:
-      version: ${{ steps.set-version.outputs.version }}
+      var_version: ${{ steps.set-version.outputs.version }}
 
   deploy:
     if: success()
@@ -87,7 +88,7 @@ jobs:
     steps:
       - name: Test
         run: |
-          echo "${{ needs.build.outputs.version }}"
+          echo "${{ needs.build.outputs.var_version }}"
 
       - name: Git config
         run: |
@@ -103,8 +104,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "${{ needs.build.outputs.version }}"
-          release_name: "Release ${{ needs.build.outputs.version }}"
+          tag_name: "${{ needs.build.outputs.var_version }}"
+          release_name: "Release ${{ needs.build.outputs.var_version }}"
           draft: false
           prerelease: false
 
