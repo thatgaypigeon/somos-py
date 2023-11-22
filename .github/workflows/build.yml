@@ -56,7 +56,7 @@ jobs:
       # Pre-build commit
       - name: Pre-build commit
         run: |
-          git add
+          git add .
           git commit
 
       # Deploy build
