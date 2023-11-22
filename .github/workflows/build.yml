@@ -78,6 +78,12 @@ jobs:
           git add .
           git commit -m "Pre-deploy commit for ${{ steps.set-version.outputs.version }}"
 
+      - name: Test
+        run: |
+          echo "$(${{ steps.set-version.outputs.var_version }})"
+          echo $(${{ steps.set-version.outputs.var_version }})
+          echo "${{ steps.set-version.outputs.var_version }}"
+
     outputs:
       var_version: ${{ steps.set-version.outputs.version }}
 
