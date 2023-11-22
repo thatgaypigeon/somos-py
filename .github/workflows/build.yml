@@ -80,9 +80,9 @@ jobs:
 
       - name: Test
         run: |
-          echo "$(${{ steps.set-version.outputs.var_version }})"
-          echo $(${{ steps.set-version.outputs.var_version }})
-          echo "${{ steps.set-version.outputs.var_version }}"
+          echo "$(${{ steps.set-version.outputs.version }})"
+          echo $(${{ steps.set-version.outputs.version }})
+          echo "${{ steps.set-version.outputs.version }}"
 
     outputs:
       var_version: ${{ steps.set-version.outputs.version }}
