@@ -42,12 +42,9 @@ jobs:
 
       # Stash version
       - name: Stash version
-        id: version
+        id: set-version
         run: |
           export version=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
-          echo "---"
-          echo $version
-          echo "---"
           echo "{version}={$version}" >> $GITHUB_OUTPUT
 
       # Bump
@@ -77,10 +74,10 @@ jobs:
       - name: Pre-deploy commit
         run: |
           git add .
-          git commit -m "Pre-deploy commit for ${{ steps.version.outputs.version }}"
+          git commit -m "Pre-deploy commit for ${{ steps.set-version.outputs.version }}"
 
     outputs:
-      version: ${{ steps.version.outputs.version }}
+      version: ${{ steps.set-version.outputs.version }}
 
   deploy:
     if: success()
