@@ -1,5 +1,5 @@
-name: Build
-run-name: Build by @${{ github.actor }}
+name: Build & Deploy
+run-name: Build & Deploy by @${{ github.actor }}
 
 on:
   push:
@@ -102,6 +102,12 @@ jobs:
       - name: Set version
         id: version
         run: echo "::set-output name=version::$(cat version.txt)"
+
+      # Test
+      - name: Print version
+        run: |
+          cat version.txt
+          pwd && ls
 
       # Deploy build
       - name: Create GitHub release
