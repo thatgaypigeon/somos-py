@@ -40,6 +40,11 @@ jobs:
         run: pip install coverage Bandit pre-commit bump-my-version
         # run: pip install -r requirements.txt
 
+      # Bump version
+      - name: Bump version
+        id: bump
+        run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
+
       # Lint
       - name: Lint
         run: pre-commit run --all-files
@@ -57,11 +62,6 @@ jobs:
       # Security checks
       - name: Security checks
         run: bandit -r .
-
-      # Bump version
-      - name: Bump version
-        id: bump
-        run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
 
       # Pre-deploy commit
       - name: Pre-deploy commit
