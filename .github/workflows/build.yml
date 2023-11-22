@@ -46,7 +46,6 @@ jobs:
         id: set-version
         run: |
           export ver=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
-          echo "$ver"
           echo "version=$ver" >> $GITHUB_OUTPUT
 
       # Bump
@@ -78,12 +77,6 @@ jobs:
           git add .
           git commit -m "Pre-deploy commit for ${{ steps.set-version.outputs.version }}"
 
-      - name: Test
-        run: |
-          echo "$(${{ steps.set-version.outputs.version }})"
-          echo $(${{ steps.set-version.outputs.version }})
-          echo "${{ steps.set-version.outputs.version }}"
-
     outputs:
       var_version: ${{ steps.set-version.outputs.version }}
 
@@ -93,12 +86,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Test
-        run: |
-          echo "$(${{ needs.build.outputs.var_version }})"
-          echo $(${{ needs.build.outputs.var_version }})
-          echo "${{ needs.build.outputs.var_version }}"
-
       - name: Git config
         run: |
           git config --global user.name "thatgaypigeon"
@@ -113,7 +100,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "${{ needs.build.outputs.var_version }}"
+          tag_name: "v${{ needs.build.outputs.var_version }}"
           release_name: "Release ${{ needs.build.outputs.var_version }}"
           draft: false
           prerelease: false
