@@ -109,6 +109,9 @@ jobs:
           cat version.txt
           pwd && ls
 
+      - name: Print version output
+        run: echo "${{ steps.version.outputs.version }}"
+
       # Deploy build
       - name: Create GitHub release
         uses: actions/create-release@v1
