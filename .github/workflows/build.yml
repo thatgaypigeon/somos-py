@@ -40,8 +40,16 @@ jobs:
         run: pip install coverage Bandit pre-commit bump-my-version
         # run: pip install -r requirements.txt
 
-      # Bump version
-      - name: Bump version
+      # Stash version
+      - name: Stash version
+        id: version
+        run: |
+          export version=$(bump-my-version --dry-run show new_version --increment ${{ github.event.inputs.version || 'patch' }})
+          echo $version
+          echo "::set-output name=version::$version"
+
+      # Bump
+      - name: Bump
         id: bump
         run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
 
@@ -67,17 +75,10 @@ jobs:
       - name: Pre-deploy commit
         run: |
           git add .
-          git commit -m "Pre-deploy commit for ${{ steps.bump.outputs.new_version }}"
+          git commit -m "Pre-deploy commit for ${{ steps.version.outputs.version }}"
 
-      # Stash version
-      - name: Save version
-        run: echo "${{ steps.bump.outputs.new_version }}" > version.txt
-
-      - name: Upload version
-        uses: actions/upload-artifact@v2
-        with:
-          name: version
-          path: version.txt
+    outputs:
+      version: ${{ steps.version.outputs.version }}
 
   deploy:
     if: success()
@@ -93,33 +94,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Fetch version number
-      - name: Download version
-        uses: actions/download-artifact@v2
-        with:
-          name: version
-
-      - name: Set version
-        id: version
-        run: echo "::set-output name=version::$(cat version.txt)"
-
-      # Test
-      - name: Print version
-        run: |
-          cat version.txt
-          pwd && ls
-
-      - name: Print version output
-        run: echo "${{ steps.version.outputs.version }}"
-
       # Deploy build
       - name: Create GitHub release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.version.outputs.version }}
-          release_name: Release ${{ steps.version.outputs.version }}
+          tag_name: ${{ needs.build.outputs.version }}
+          release_name: Release ${{ needs.build.outputs.version }}
           draft: false
           prerelease: false
 
