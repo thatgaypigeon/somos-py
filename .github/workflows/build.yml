@@ -58,16 +58,18 @@ jobs:
       - name: Security checks
         run: bandit -r .
 
+      # Bump
+      - name: Bump version
+        id: bump
+        run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
+
       # Pre-build commit
       - name: Pre-build commit
         run: |
           git add .
-          git commit
+          git commit -m "Pre-build commit for ${{ steps.bump.outputs.new_version }}"
 
       # Deploy build
-      - name: Bump version
-        id: bump
-        run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
 
       - name: Create GitHub release
         uses: actions/create-release@v1
