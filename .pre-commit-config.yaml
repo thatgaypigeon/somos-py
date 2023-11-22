@@ -1,15 +1,15 @@
 repos:
 # Python linting
-  - repo: https://github.com/ambv/black
-    rev: 23.11.0
-    hooks:
-    - id: black
-      files: ^somos/.*\.py$
-
   - repo: https://github.com/PyCQA/flake8
     rev: 6.1.0
     hooks:
     - id: flake8
+      files: ^somos/.*\.py$
+
+  - repo: https://github.com/ambv/black
+    rev: 23.11.0
+    hooks:
+    - id: black
       files: ^somos/.*\.py$
 
   - repo: https://github.com/PyCQA/isort
