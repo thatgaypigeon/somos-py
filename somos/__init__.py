@@ -12,3 +12,5 @@ A Somos sequence generator for Python.
 
 Use somos.__version__ for the release version.
 """
+
+from .somos import Sequence  # noqa: F401

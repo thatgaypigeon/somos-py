@@ -1,4 +1,5 @@
-name: Build & Deploy Documentation
+name: Build Documentation
+run-name: Build Documentation by @${{ github.actor }}
 
 on:
   push:
@@ -7,11 +8,8 @@ on:
     paths:
       - docs/**
 
-permissions:
-  contents: write
-
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +21,7 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Update pip
+      - name: Install pip
         run: python -m pip install --upgrade pip
 
       - name: Install MkDocs
@@ -31,13 +29,12 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r docs/requirements.txt
-      
+
       - name: Build documentation
         run: mkdocs build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # publish_branch: main
           publish_dir: ./site/
           github_token: ${{ secrets.GITHUB_TOKEN }}

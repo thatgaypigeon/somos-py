@@ -1,26 +1,33 @@
 repos:
 # Python linting
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-    - id: flake8
-      files: ^somos/.*\.py$
-
-  - repo: https://github.com/ambv/black
+  - repo: https://github.com/psf/black
     rev: 23.11.0
     hooks:
     - id: black
-      files: ^somos/.*\.py$
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:
     - id: isort
-      files: ^somos/.*\.py$
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
 
-# Markdown linting
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.37.0
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
     hooks:
-    - id: markdownlint
-      files: \.md$
+    - id: flake8
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.7.0
+    hooks:
+    - id: mypy
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
