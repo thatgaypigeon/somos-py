@@ -85,6 +85,10 @@ jobs:
     needs: build
 
     steps:
+      - name: Test
+        run: |
+          echo "${{ needs.build.outputs.version }}"
+
       - name: Git config
         run: |
           git config --global user.name "thatgaypigeon"
@@ -99,8 +103,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ needs.build.outputs.version }}
-          release_name: Release ${{ needs.build.outputs.version }}
+          tag_name: "${{ needs.build.outputs.version }}"
+          release_name: "Release ${{ needs.build.outputs.version }}"
           draft: false
           prerelease: false
 
