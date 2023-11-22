@@ -46,8 +46,8 @@ jobs:
         id: set-version
         run: |
           export ver=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
-          echo "{$ver}"
-          echo "{version}={$ver}" >> $GITHUB_OUTPUT
+          echo "$ver"
+          echo "version=$ver" >> $GITHUB_OUTPUT
 
       # Bump
       - name: Bump
