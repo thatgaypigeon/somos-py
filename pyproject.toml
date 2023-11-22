@@ -43,10 +43,21 @@ classifiers = [
 "Support Server" = "https://discord.gg/MyPTZBH4Q8"
 "Wikipedia Page" = "https://en.wikipedia.org/wiki/Somos_sequence"
 
+[tool.bumpversion]
+allow_dirty = false
+commit = false
+message = "Bump version: {current_version} → {new_version}"
+commit_args = ""
+tag = false
+sign_tags = false
+current_version = "0.1.0"
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+serialize = [
+    "{major}.{minor}.{patch}"
+]
+search = "{current_version}"
+replace = "{new_version}"
+
 [tool.poetry]
 include = ["somos/py.typed"]
-
-[bumpversion]
-current_version = 0.0.1
-commit = True
-tag = True

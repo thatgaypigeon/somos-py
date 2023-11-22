@@ -32,7 +32,7 @@ jobs:
         run: python -m pip install --upgrade pip
 
       - name: Install dependencies
-        run: pip install coverage Bandit pre-commit bump2version
+        run: pip install coverage Bandit pre-commit bump-my-version
         # run: pip install -r requirements.txt
 
       # Code coverage
@@ -58,7 +58,7 @@ jobs:
       # Deploy build
       - name: Bump version
         id: bump
-        run: bump2version ${{ github.event.inputs.version || 'patch' }} --tag
+        run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
 
       - name: Create GitHub release
         uses: actions/create-release@v1
