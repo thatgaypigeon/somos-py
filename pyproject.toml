@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "somos"
-version = "1.0.0"
+version = "0.1.0"
 description = "A Somos sequence generator for Python!"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -45,3 +45,8 @@ classifiers = [
 
 [tool.poetry]
 include = ["somos/py.typed"]
+
+[bumpversion]
+current_version = 0.1.0
+commit = True
+tag = True
