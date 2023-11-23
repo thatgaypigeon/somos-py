@@ -1,5 +1,5 @@
 name: Documentation
-run-name: Build & Deploy Dcumentation by @${{ github.actor }}
+run-name: Build & Deploy Documentation by @${{ github.actor }}
 
 on:
   push:
