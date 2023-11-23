@@ -45,13 +45,13 @@ jobs:
         shell: bash
         id: set-version
         run: |
-          export ver=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'patch' }})
+          export ver=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'build' }})
           echo "version=$ver" >> $GITHUB_OUTPUT
 
       # Bump
       - name: Bump
         id: bump
-        run: bump-my-version bump ${{ github.event.inputs.version || 'patch' }}
+        run: bump-my-version bump ${{ github.event.inputs.version || 'build' }}
 
       # Lint
       - name: Lint
