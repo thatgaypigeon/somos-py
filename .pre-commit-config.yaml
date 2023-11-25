@@ -1,13 +1,54 @@
 repos:
-# Python linting
-  - repo: https://github.com/psf/black
-    rev: 23.11.0
+# Hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
     hooks:
-    - id: black
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+    - id: check-yaml
+    - id: check-added-large-files
+
+# Checks
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.7.1
+    hooks:
+    - id: mypy
       files: |
         ^somos/.*\.py$
         ^tests/.*\.py$
 
+  - repo: local
+    hooks:
+    - id: unittest
+      name: unittest
+      entry: python -B -m unittest discover -s tests
+      language: system
+      pass_filenames: false
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+    - id: bandit
+      args: ["-r", "."]
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
+  - repo: local
+    hooks:
+    - id: pytest-check
+      name: pytest-check
+      entry: python -m pytest tests
+      language: system
+      pass_filenames: false
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
+# Linting
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:
@@ -24,24 +65,10 @@ repos:
         ^somos/.*\.py$
         ^tests/.*\.py$
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.7.0
+  - repo: https://github.com/psf/black
+    rev: 23.11.0
     hooks:
-    - id: mypy
+    - id: black
       files: |
         ^somos/.*\.py$
         ^tests/.*\.py$
-
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
-    hooks:
-      - id: bandit
-        args: ["-r", "."]
-
-  - repo: local
-    hooks:
-      - id: unittest
-        name: unittest
-        entry: python -B -m unittest discover -s tests
-        language: system
-        pass_filenames: false
