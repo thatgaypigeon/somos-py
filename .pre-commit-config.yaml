@@ -8,22 +8,37 @@ repos:
     - id: check-yaml
     - id: check-added-large-files
 
+# Linting
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+    - id: isort
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+    - id: flake8
+      args: ["--cache"]
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
+  - repo: https://github.com/psf/black
+    rev: 23.11.0
+    hooks:
+    - id: black
+      files: |
+        ^somos/.*\.py$
+        ^tests/.*\.py$
+
 # Checks
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.7.1
     hooks:
     - id: mypy
-      files: |
-        ^somos/.*\.py$
-        ^tests/.*\.py$
-
-  - repo: local
-    hooks:
-    - id: unittest
-      name: unittest
-      entry: python -B -m unittest discover -s tests
-      language: system
-      pass_filenames: false
       files: |
         ^somos/.*\.py$
         ^tests/.*\.py$
@@ -44,31 +59,6 @@ repos:
       entry: python -m pytest tests
       language: system
       pass_filenames: false
-      files: |
-        ^somos/.*\.py$
-        ^tests/.*\.py$
-
-# Linting
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
-    hooks:
-    - id: isort
-      files: |
-        ^somos/.*\.py$
-        ^tests/.*\.py$
-
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-    - id: flake8
-      files: |
-        ^somos/.*\.py$
-        ^tests/.*\.py$
-
-  - repo: https://github.com/psf/black
-    rev: 23.11.0
-    hooks:
-    - id: black
       files: |
         ^somos/.*\.py$
         ^tests/.*\.py$
