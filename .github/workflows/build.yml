@@ -126,7 +126,7 @@ jobs:
         run: bandit -r .
 
       # Code coverage
-      - name: Run tests with coverage
+      - name: Run tests with coverage (pytest)
         run: pytest --cov=somos --cov-report=xml tests
 
       - name: Upload coverage to Codecov
