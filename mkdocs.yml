@@ -19,7 +19,7 @@ edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2023 Max Kerr
 
 theme:
-  name: material # dracula
+  name: material
   language: en
   # custom_dir: src/docs/overrides
 
@@ -89,7 +89,7 @@ plugins:
   # - optimize
   # - privacy
   # - projects
-  # - search
+  - search
   # - social:
   #     cards_layout_options:
   #       font_family: Noto Sans JP

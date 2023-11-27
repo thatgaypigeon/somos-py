@@ -4,16 +4,9 @@ run-name: Build & Deploy by @${{ github.actor }}
 on:
   push:
     branches:
-      - main
+      - dev
     paths:
       - somos/**
-
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version type to bump (major, minor, patch)'
-        required: false
-        default: 'build'
 
 jobs:
   bump:
@@ -45,21 +38,15 @@ jobs:
         shell: bash
         id: set-version
         run: |
-          export cur_ver=$(bump-my-version show new_version ${{ github.event.inputs.version || 'build' }})
-          export new_ver=$(bump-my-version show new_version --increment ${{ github.event.inputs.version || 'build' }})
+          export cur_ver=$(bump-my-version show new_version build)
+          export new_ver=$(bump-my-version show new_version --increment build)
           echo "cur_version=$cur_ver" >> $GITHUB_OUTPUT
           echo "new_version=$new_ver" >> $GITHUB_OUTPUT
 
       # Bump
       - name: Bump
         id: bump
-        run: |
-          version=$(bump-my-version show new_version)
-          if [[ "${{ github.event.inputs.version || 'build' }}" == "build" ]] && [[ $version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            bump-my-version bump release || bump-my-version bump patch
-          else
-            bump-my-version bump ${{ github.event.inputs.version || 'build' }}
-          fi
+        run: bump-my-version bump build
 
     outputs:
       var_cur_version: ${{ steps.set-version.outputs.cur_version }}
@@ -88,12 +75,25 @@ jobs:
         run: python -m pip install --upgrade pip
 
       - name: Install dependencies
-        run: pip install pre-commit
-        # run: pip install -r requirements.txt
+        run: pip install black flake8 isort mypy
 
-      # Lint
-      - name: Lint
-        run: pre-commit run --all-files
+      - name: Sort imports (isort)
+        run: isort .
+
+      - name: Format code (black)
+        run: black .
+
+      - name: Lint code (flake8)
+        run: flake8 .
+
+      - name: Type check (mypy)
+        run: mypy .
+
+      # Pre-test commit
+      - name: Pre-test commit
+        run: |
+          git add .
+          git commit -m "Pre-test commit for ${{ needs.bump.outputs.var_new_version }}"
 
   test:
     if: success()
@@ -118,22 +118,23 @@ jobs:
         run: python -m pip install --upgrade pip
 
       - name: Install dependencies
-        run: pip install coverage bandit
+        run: pip install bandit pytest pytest-cov
         # run: pip install -r requirements.txt
 
+      # Security checks
+      - name: Run security checks (bandit)
+        run: bandit -r .
+
       # Code coverage
-      - name: Run tests with coverage
-        run: coverage run -m unittest discover tests
+      - name: Run tests with coverage (pytest)
+        run: pytest --cov=somos --cov-report=xml tests
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
           fail_ci_if_error: true
-
-      # Security checks
-      - name: Security checks
-        run: bandit -r .
 
       # Pre-build commit
       - name: Pre-build commit

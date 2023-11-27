@@ -80,7 +80,12 @@ class Sequence:
 
     __slots__: tuple = ("_k", "_sequence", "_trivial", "_ctx")
 
-    def __init__(self, k: int, num_terms: int | None = None, num_non_triv_terms: int | None = None) -> None:
+    def __init__(
+        self,
+        k: int,
+        num_terms: int | None = None,
+        num_non_triv_terms: int | None = None,
+    ) -> None:
         if not isinstance(k, int):
             # Catch k is not int
             raise TypeError(f"Expected int, received {k.__class__.__name__} instead.")

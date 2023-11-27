@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "somos"
-version = "3.5.0rc0"
+version = "0.0.0"
 description = "A Somos sequence generator for Python!"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -47,16 +47,17 @@ classifiers = [
 [tool.bumpversion]
 allow_dirty = false
 commit = true
-message = "Bump version: {current_version} \u2192 {new_version}"
+message = "Bump: {current_version} \u2192 {new_version}"
 commit_args = ""
 tag = false
-sign_tags = false
 tag_name = "v{new_version}"
-tag_message = "Bump version: {current_version} \u2192 {new_version}"
-current_version = "3.6.1-1"
+tag_message = "Bump: {current_version} \u2192 {new_version}"
+sign_tags = false
+current_version = "0.0.0"
 
-parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)((?P<release>dev|a|b|rc)(?P<build>\\d+))?"
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)((?P<release>a|b|rc)(?P<build>\\d+))?(\\.dev(?P<dev>\\d+))?"
 serialize = [
+	"{major}.{minor}.{patch}{release}{build}.dev{dev}",
 	"{major}.{minor}.{patch}{release}{build}",
 	"{major}.{minor}.{patch}"
 ]
@@ -65,11 +66,9 @@ replace = "{new_version}"
 
 [tool.bumpversion.parts.release]
 values = [
-  "",
-  "dev",
   "a",
-	"b",
-	"rc"
+  "b",
+  "rc"
 ]
 optional = true
 
