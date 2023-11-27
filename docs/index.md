@@ -41,7 +41,7 @@ when $k$ is even, with the initial values $a_{i}=1$ for $i < k$.
 ### Sequence values <a href="#top"><img align="right" height="20px" src="https://api.iconify.design/octicon:move-to-top-16.svg?color=%23ffa724" /></a>
 For $k = 2$ or $3$, the generated sequence is all $1$s.
 
-For $k > 3$, the first $k$ terms are all $1$s.
+For $k > 3$, the first $k$ terms are all $1$.
 
 For $k < 7$, all terms are integers. For $k > 8$, terms will eventually become [fractions](https://en.wikipedia.org/wiki/Fraction). The terms at which Somos-$k$ becomes non-integral are (starting at Somos-$8$): 17, 19, 20, 22, 24, 27, 28, 30, 33, 34, 36, 39, ... (sequence [A030127](https://oeis.org/A030127) in the OEIS).
 
